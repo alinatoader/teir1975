@@ -51,7 +51,6 @@ public class AppController {
 				testIntrebari.add(intrebare);
 				domenii.add(intrebare.getDomeniu());
 			}
-			
 		}
 		
 		test.setIntrebari(testIntrebari);

@@ -135,4 +135,49 @@ public class AppControllerTest {
         }
     }
 
+    @Test
+    public void WBT_TC1(){
+        try{
+            ctrl.addNewIntrebare(new Intrebare("In ce an suntem?", "1) 2018", "2) 2019", "1", "Istorie"));
+            ctrl.addNewIntrebare(new Intrebare("Ce e OOP?", "1) object oriented programming", "2) nimic", "1", "Informatica"));
+            ctrl.addNewIntrebare(new Intrebare("Cum te cheama?", "1) Alina", "2) Mihai", "1", "Social"));
+            ctrl.addNewIntrebare(new Intrebare("In ce tara suntem?", "1) Franta", "2) Romania", "2", "Geografie"));
+            evaluator.model.Test test = ctrl.createNewTest();
+        }
+        catch(Exception e){
+            assertEquals("Nu exista suficiente domenii pentru crearea unui test!(5)",e.getMessage());
+        }
+    }
+
+    @Test
+    public void WBT_TC2(){
+        try{
+            ctrl.addNewIntrebare(new Intrebare("In ce an suntem?", "1) 2018", "2) 2019", "1", "Istorie"));
+            ctrl.addNewIntrebare(new Intrebare("Ce e OOP?", "1) object oriented programming", "2) nimic", "1", "Informatica"));
+            ctrl.addNewIntrebare(new Intrebare("Cum te cheama?", "1) Alina", "2) Mihai", "1", "Social"));
+            ctrl.addNewIntrebare(new Intrebare("In ce tara suntem?", "1) Franta", "2) Romania", "2", "Geografie"));
+            ctrl.addNewIntrebare(new Intrebare("Ce e Windows?", "1) operating system", "2) game", "1", "Informatica"));
+            evaluator.model.Test test = ctrl.createNewTest();
+        }
+        catch(Exception e){
+            assertEquals("Nu exista suficiente domenii pentru crearea unui test!(5)",e.getMessage());
+        }
+    }
+
+    @Test
+    public void WBT_TC3(){
+        try{
+            ctrl.addNewIntrebare(new Intrebare("In ce an suntem?", "1) 2018", "2) 2019", "1", "Istorie"));
+            ctrl.addNewIntrebare(new Intrebare("Ce e OOP?", "1) object oriented programming", "2) nimic", "1", "Informatica"));
+            ctrl.addNewIntrebare(new Intrebare("Cum te cheama?", "1) Alina", "2) Mihai", "1", "Social"));
+            ctrl.addNewIntrebare(new Intrebare("In ce tara suntem?", "1) Franta", "2) Romania", "2", "Geografie"));
+            ctrl.addNewIntrebare(new Intrebare("Cat fac 2+2?", "1) 7", "2) 4", "2", "Matematica"));
+            evaluator.model.Test test = ctrl.createNewTest();
+            Assert.assertTrue(test.getIntrebari().size() == 5);
+        }
+        catch(Exception e){
+            assertEquals("",e.getMessage());
+        }
+    }
+
 }
