@@ -43,14 +43,20 @@ public class AppController {
 		List<String> domenii = new LinkedList<String>();
 		Intrebare intrebare;
 		Test test = new Test();
-		
-		while(testIntrebari.size() != 5){
+		int parcurse = 0;
+		boolean continua = true;
+		while(continua){
+			continua = testIntrebari.size() != 5;
 			intrebare = intrebariRepository.pickRandomIntrebare();
-			
+			if(!testIntrebari.contains(intrebare)){
+				parcurse++;
+			}
 			if(!testIntrebari.contains(intrebare) && !domenii.contains(intrebare.getDomeniu())){
 				testIntrebari.add(intrebare);
 				domenii.add(intrebare.getDomeniu());
 			}
+			if(parcurse == intrebariRepository.getIntrebari().size())
+				continua = false;
 		}
 		
 		test.setIntrebari(testIntrebari);
