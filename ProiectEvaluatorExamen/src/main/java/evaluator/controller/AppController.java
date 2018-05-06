@@ -1,6 +1,7 @@
 package evaluator.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -74,10 +75,17 @@ public class AppController {
 			throw new NotAbleToCreateStatisticsException("Repository-ul nu contine nicio intrebare!");
 		
 		Statistica statistica = new Statistica();
+		List<Intrebare> intrebari = intrebariRepository.getIntrebari();
 		for(String domeniu : intrebariRepository.getDistinctDomains()){
-			statistica.add(domeniu, intrebariRepository.getIntrebari().size());
+			List<Intrebare> intr = new ArrayList<>();
+			int number = 0;
+			for (Intrebare i:intrebari ) {
+				if(i.getDomeniu().equals(domeniu)){
+					number++;
+				}
+			}
+			statistica.add(domeniu, number);
 		}
-		
 		return statistica;
 	}
 

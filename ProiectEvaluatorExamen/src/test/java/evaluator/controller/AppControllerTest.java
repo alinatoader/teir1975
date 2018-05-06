@@ -1,6 +1,8 @@
 package evaluator.controller;
 
+import evaluator.exception.NotAbleToCreateStatisticsException;
 import evaluator.model.Intrebare;
+import evaluator.model.Statistica;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -187,6 +189,32 @@ public class AppControllerTest {
         }
         catch(Exception e){
             assertEquals("Nu exista suficiente intrebari pentru crearea unui test!(5)", e.getMessage());
+        }
+    }
+
+    @Test
+    public void Cerinta3_valid(){
+        try{
+            ctrl.addNewIntrebare(new Intrebare("In ce an suntem?", "1) 2018", "2) 2019", "1", "Istorie"));
+            ctrl.addNewIntrebare(new Intrebare("Ce e OOP?", "1) object oriented programming", "2) nimic", "1", "Informatica"));
+            ctrl.addNewIntrebare(new Intrebare("Cum te cheama?", "1) Alina", "2) Mihai", "1", "Istorie"));
+            ctrl.addNewIntrebare(new Intrebare("In ce tara suntem?", "1) Franta", "2) Romania", "2", "Informatica"));
+            ctrl.addNewIntrebare(new Intrebare("Cat fac 2+2?", "1) 7", "2) 4", "2", "Istorie"));
+            Statistica s = ctrl.getStatistica();
+            assertEquals(2,s.getIntrebariDomenii().size());
+        }
+        catch(Exception ex){
+            assertEquals("",ex.getMessage());
+        }
+    }
+
+    @Test
+    public void Cerinta3_nonvalid(){
+        try{
+            Statistica s = ctrl.getStatistica();
+        }
+        catch(NotAbleToCreateStatisticsException ex){
+            assertEquals("Repository-ul nu contine nicio intrebare!",ex.getMessage());
         }
     }
 
