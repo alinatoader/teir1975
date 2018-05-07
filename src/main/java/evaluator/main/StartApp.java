@@ -5,13 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import evaluator.exception.DuplicateIntrebareException;
 import evaluator.exception.InputValidationFailedException;
 import evaluator.model.Intrebare;
 import evaluator.model.Statistica;
 
-import evaluator.controller.AppController;
+import evaluator.AppController;
 import evaluator.exception.NotAbleToCreateStatisticsException;
 
 //functionalitati

@@ -1,4 +1,4 @@
-package evaluator.controller;
+package evaluator;
 
 import java.util.ArrayList;
 import java.util.HashMap;

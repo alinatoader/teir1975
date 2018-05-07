@@ -1,4 +1,4 @@
-package evaluator.controller;
+package evaluator;
 
 import evaluator.exception.NotAbleToCreateStatisticsException;
 import evaluator.model.Intrebare;
