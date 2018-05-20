@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Laborator5.features.search.SearchByKeywordStory" skipped="0" tests="2" time="16.9" timestamp="2018-05-20T20:08:18.084+03:00[Europe/Athens]"><testcase classname="Laborator5.features.search.SearchByKeywordStory" name="Adding valid questions should display new item"/><testcase classname="Laborator5.features.search.SearchByKeywordStory" name="Searching by keyword banana should display the corresponding article"><failure message="&#10;Expected: not a collection containing a string containing &quot;&quot;&#10;     but: was &lt;[Ce inseamna OOP?]&gt;" type="java.lang.AssertionError">
+Expected: not a collection containing a string containing ""
+     but: was &lt;[Ce inseamna OOP?]&gt;</failure><system-err>
+Expected: not a collection containing a string containing ""
+     but: was &lt;[Ce inseamna OOP?]&gt;&#13;
+Laborator5.steps.serenity.EndUserSteps.should_not_see_new_item(EndUserSteps.java:34)&#13;
+Laborator5.features.search.SearchByKeywordStory.searching_by_keyword_banana_should_display_the_corresponding_article(SearchByKeywordStory.java:35)&#13;
+</system-err></testcase></testsuite>
